@@ -1,0 +1,31 @@
+{
+  "name": "clickhouse-sink-connector",
+  "config": {
+    "connector.class": "com.altinity.clickhouse.sink.connector.ClickHouseSinkConnector",
+    "tasks.max": "1",
+
+    "topics": "dbserver1.test_db.users,dbserver2.test_db2.users",
+    "clickhouse.topic2table.map": "dbserver1.test_db.users:users,dbserver2.test_db2.users:users",
+
+    "clickhouse.server.url": "http://clickhouse:8123",
+    "clickhouse.database": "analytics",
+    "clickhouse.username": "default",
+    "clickhouse.password": "root",
+    "clickhouse.table.name": "users",
+
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+
+    "insert.mode": "insert",
+    "auto.create.tables": "true",
+    "errors.tolerance": "all",
+
+    "transforms": "unwrap,addTenant",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+    "transforms.unwrap.drop.tombstones": "true",
+    "transforms.unwrap.add.fields": "tenant_id",
+    "transforms.addTenant.type": "org.apache.kafka.connect.transforms.MaskField$Value",
+    "transforms.addTenant.fields": "tenant_id"
+  }
+}
