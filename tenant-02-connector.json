@@ -8,21 +8,31 @@
     "database.password": "dbz",
     "database.server.id": "223345",
     "database.server.name": "dbserver2",
-    "database.include.list": "test_db2",
-    "table.include.list": "test_db2.users,test_db2.user_logs",
-
+    "database.include.list": "ejabberd_test",
     "include.schema.changes": "false",
     "topic.prefix": "dbserver2",
 
-    "database.history.kafka.bootstrap.servers": "kafka:9092",
-    "database.history.kafka.topic": "schema-changes.test_db2",
-    "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
-    "schema.history.internal.kafka.topic": "schema-changes.test_db2",
+    "producer.override.max.request.size": "8388608",
+    "producer.override.buffer.memory": "134217728",
+    "producer.override.compression.type": "snappy",
+    "producer.override.linger.ms": "100",
 
     "snapshot.mode": "initial",
     "snapshot.locking.mode": "minimal",
+    "snapshot.fetch.size": "1000",
+    "max.batch.size": "500",
+
+    "database.history.kafka.bootstrap.servers": "kafka:9092",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
+    "schema.history.internal.kafka.topic": "schema-changes.ejabberd_test",
 
     "time.precision.mode": "connect",
-    "decimal.handling.mode": "double"
+    "decimal.handling.mode": "double",
+    "binary.handling.mode": "base64",
+
+    "transforms": "AddTenant",
+    "transforms.AddTenant.type": "org.apache.kafka.connect.transforms.InsertField$Value",
+    "transforms.AddTenant.static.field": "tenant_id",
+    "transforms.AddTenant.static.value": "cx-gosi-dev.masdr.org"
   }
 }
