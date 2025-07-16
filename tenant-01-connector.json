@@ -12,6 +12,7 @@
     "include.schema.changes": "false",
     "topic.prefix": "dbserver1",
 
+    "database.queryTimeout.ms": "300000",
     "producer.override.topic.creation.default.replication.factor": "1",
     "producer.override.topic.creation.default.partitions": "1",
     "topic.creation.default.replication.factor": "1",
@@ -38,6 +39,7 @@
     "transforms": "AddTenant",
     "transforms.AddTenant.type": "org.apache.kafka.connect.transforms.InsertField$Value",
     "transforms.AddTenant.static.field": "tenant_id",
-    "transforms.AddTenant.static.value": "cx-dev.masdr.org"
+    "transforms.AddTenant.static.value": "cx-dev.masdr.org",
+    "table.exclude.list": "ejabberd.archive_prefs,ejabberd.audit_log,ejabberd.bosh,ejabberd.call_queue,ejabberd.archive,ejabberd.call_recordings,ejabberd.caps_features,ejabberd.chat_access_tokens,ejabberd.chat_data_export,ejabberd.chat_logs,ejabberd.chat_media_files,ejabberd.chat_message_edit_history,ejabberd.chat_otp,ejabberd.chat_recent,ejabberd.chat_recent_topic,ejabberd.chat_servers,ejabberd.chat_settings,ejabberd.chat_users,ejabberd.chat_users_details,ejabberd.client_call_logs,ejabberd.deleted_accounts,ejabberd.group_update,ejabberd.ejabberd_log,ejabberd.irc_custom,ejabberd.last,ejabberd.license_lookup,ejabberd.mail_templates,ejabberd.masdr_services,ejabberd.media_call_logs,ejabberd.media_logs,ejabberd.media_pod_logs,ejabberd.message_favourite,ejabberd.message_status,ejabberd.migration_file_details,ejabberd.mix_channel,ejabberd.mix_pam,ejabberd.mix_participant,ejabberd.mix_subscription,ejabberd.motd,ejabberd.mqtt_pub,ejabberd.muc_online_room,ejabberd.muc_online_users,ejabberd.muc_registered,ejabberd.muc_room,ejabberd.muc_room_subscribers,ejabberd.oauth_client,ejabberd.oauth_token,ejabberd.privacy_default_list,ejabberd.privacy_list,ejabberd.privacy_list_data,ejabberd.private_storage,ejabberd.proxy65,ejabberd.pubsub_node,ejabberd.pubsub_item,ejabberd.pubsub_node_option,ejabberd.pubsub_node_owner,ejabberd.pubsub_state,ejabberd.pubsub_subscription_opt,ejabberd.push_session,ejabberd.reports,ejabberd.rostergroups,ejabberd.rosterusers,ejabberd.roster_version,ejabberd.route,ejabberd.sites,ejabberd.sm,ejabberd.spool,ejabberd.sr_group,ejabberd.sr_user,ejabberd.tenant_configurations,ejabberd.topic_data,ejabberd.topic_data_old,ejabberd.users_contacts,ejabberd.user_service_shift_log,ejabberd.user_session_log,ejabberd.user_session_logs,ejabberd.vcard,ejabberd.vcard_xupdate"
   }
 }
