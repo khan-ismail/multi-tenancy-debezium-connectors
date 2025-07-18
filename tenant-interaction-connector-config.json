@@ -20,17 +20,14 @@
   "producer.override.compression.type": "snappy",
   "producer.override.linger.ms": "100",
 
+  "snapshot.mode": "initial",
   "snapshot.locking.mode": "minimal",
   "snapshot.fetch.size": "1000",
   "max.batch.size": "500",
 
-  "database.history.kafka.bootstrap.servers": "kafka:9092",
-  "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
+  "database.history.kafka.bootstrap.servers": "kafka-clickhouse.masdrdev.svc.cluster.local:9092",
+  "schema.history.internal.kafka.bootstrap.servers": "kafka-clickhouse.masdrdev.svc.cluster.local:9092",
   "schema.history.internal.kafka.topic": "schema-changes.interaction",
-
-  "snapshot.mode": "initial_only",
-  "snapshot.tables": "interaction.tenant_configurations",
-  "signal.data.collection": "interaction.tenant_configurations",
 
   "time.precision.mode": "connect",
   "decimal.handling.mode": "double",
