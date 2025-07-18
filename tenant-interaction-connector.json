@@ -1,0 +1,44 @@
+{
+  "name": "tenant-interaction-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "database.hostname": "host.docker.internal",
+    "database.port": "3306",
+    "database.user": "debezium",
+    "database.password": "dbz",
+    "database.server.id": "223345",
+    "database.server.name": "dbserver2",
+    "database.include.list": "interaction",
+    "include.schema.changes": "false",
+    "topic.prefix": "dbserver2",
+
+    "producer.override.topic.creation.default.replication.factor": "1",
+    "producer.override.topic.creation.default.partitions": "1",
+    "topic.creation.default.replication.factor": "1",
+    "topic.creation.default.partitions": "1",
+
+    "producer.override.max.request.size": "8388608",
+    "producer.override.buffer.memory": "134217728",
+    "producer.override.compression.type": "snappy",
+    "producer.override.linger.ms": "100",
+
+    "snapshot.mode": "initial",
+    "snapshot.locking.mode": "minimal",
+    "snapshot.fetch.size": "1000",
+    "max.batch.size": "500",
+
+    "database.history.kafka.bootstrap.servers": "kafka-clickhouse.masdrdev.svc.cluster.local:9092",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka-clickhouse.masdrdev.svc.cluster.local:9092",
+    "schema.history.internal.kafka.topic": "schema-changes.interaction",
+
+    "time.precision.mode": "connect",
+    "decimal.handling.mode": "double",
+    "binary.handling.mode": "base64",
+
+    "transforms": "AddTenant",
+    "transforms.AddTenant.type": "org.apache.kafka.connect.transforms.InsertField$Value",
+    "transforms.AddTenant.static.field": "tenant_id",
+    "transforms.AddTenant.static.value": "cx-dev.masdr.org",
+    "table.exclude.list": "interaction.archive_prefs,interaction.audit_log,interaction.bosh,interaction.call_queue,interaction.archive,interaction.call_recordings,interaction.caps_features,interaction.chat_access_tokens,interaction.chat_data_export,interaction.chat_logs,interaction.chat_media_files,interaction.chat_message_edit_history,interaction.chat_otp,interaction.chat_recent,interaction.chat_recent_topic,interaction.chat_servers,interaction.chat_settings,interaction.chat_users,interaction.chat_users_details,interaction.client_call_logs,interaction.deleted_accounts,interaction.group_update,interaction.interaction_log,interaction.irc_custom,interaction.last,interaction.license_lookup,interaction.mail_templates,interaction.masdr_services,interaction.media_call_logs,interaction.media_logs,interaction.media_pod_logs,interaction.message_favourite,interaction.message_status,interaction.migration_file_details,interaction.mix_channel,interaction.mix_pam,interaction.mix_participant,interaction.mix_subscription,interaction.motd,interaction.mqtt_pub,interaction.muc_online_room,interaction.muc_online_users,interaction.muc_registered,interaction.muc_room,interaction.muc_room_subscribers,interaction.oauth_client,interaction.oauth_token,interaction.privacy_default_list,interaction.privacy_list,interaction.privacy_list_data,interaction.private_storage,interaction.proxy65,interaction.pubsub_node,interaction.pubsub_item,interaction.pubsub_node_option,interaction.pubsub_node_owner,interaction.pubsub_state,interaction.pubsub_subscription_opt,interaction.push_session,interaction.reports,interaction.rostergroups,interaction.rosterusers,interaction.roster_version,interaction.route,interaction.sites,interaction.sm,interaction.spool,interaction.sr_group,interaction.sr_user,interaction.topic_data,interaction.topic_data_old,interaction.users_contacts,interaction.user_service_shift_log,interaction.user_session_log,interaction.user_session_logs,interaction.vcard,interaction.vcard_xupdate,interaction.vcard_search"
+  }
+}
