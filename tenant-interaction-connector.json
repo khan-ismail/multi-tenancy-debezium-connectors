@@ -1,5 +1,5 @@
 {
-  "name": "tenant-interaction-connector",
+  "name": "tenant-ejabberd-connector",
   "config": {
     "connector.class": "io.debezium.connector.mysql.MySqlConnector",
     "database.hostname": "host.docker.internal",
@@ -8,7 +8,7 @@
     "database.password": "dbz",
     "database.server.id": "223345",
     "database.server.name": "dbserver2",
-    "database.include.list": "interaction",
+    "database.include.list": "ejabberd",
     "include.schema.changes": "false",
     "topic.prefix": "dbserver2",
 
@@ -27,9 +27,9 @@
     "snapshot.fetch.size": "1000",
     "max.batch.size": "500",
 
-    "database.history.kafka.bootstrap.servers": "kafka-clickhouse.masdrdev.svc.cluster.local:9092",
-    "schema.history.internal.kafka.bootstrap.servers": "kafka-clickhouse.masdrdev.svc.cluster.local:9092",
-    "schema.history.internal.kafka.topic": "schema-changes.interaction",
+    "database.history.kafka.bootstrap.servers": "kafka:9092",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
+    "schema.history.internal.kafka.topic": "schema-changes.ejabberd",
 
     "time.precision.mode": "connect",
     "decimal.handling.mode": "double",
@@ -39,6 +39,6 @@
     "transforms.AddTenant.type": "org.apache.kafka.connect.transforms.InsertField$Value",
     "transforms.AddTenant.static.field": "tenant_id",
     "transforms.AddTenant.static.value": "cx-dev.masdr.org",
-    "table.exclude.list": "interaction.archive_prefs,interaction.audit_log,interaction.bosh,interaction.call_queue,interaction.archive,interaction.call_recordings,interaction.caps_features,interaction.chat_access_tokens,interaction.chat_data_export,interaction.chat_logs,interaction.chat_media_files,interaction.chat_message_edit_history,interaction.chat_otp,interaction.chat_recent,interaction.chat_recent_topic,interaction.chat_servers,interaction.chat_settings,interaction.chat_users,interaction.chat_users_details,interaction.client_call_logs,interaction.deleted_accounts,interaction.group_update,interaction.interaction_log,interaction.irc_custom,interaction.last,interaction.license_lookup,interaction.mail_templates,interaction.masdr_services,interaction.media_call_logs,interaction.media_logs,interaction.media_pod_logs,interaction.message_favourite,interaction.message_status,interaction.migration_file_details,interaction.mix_channel,interaction.mix_pam,interaction.mix_participant,interaction.mix_subscription,interaction.motd,interaction.mqtt_pub,interaction.muc_online_room,interaction.muc_online_users,interaction.muc_registered,interaction.muc_room,interaction.muc_room_subscribers,interaction.oauth_client,interaction.oauth_token,interaction.privacy_default_list,interaction.privacy_list,interaction.privacy_list_data,interaction.private_storage,interaction.proxy65,interaction.pubsub_node,interaction.pubsub_item,interaction.pubsub_node_option,interaction.pubsub_node_owner,interaction.pubsub_state,interaction.pubsub_subscription_opt,interaction.push_session,interaction.reports,interaction.rostergroups,interaction.rosterusers,interaction.roster_version,interaction.route,interaction.sites,interaction.sm,interaction.spool,interaction.sr_group,interaction.sr_user,interaction.topic_data,interaction.topic_data_old,interaction.users_contacts,interaction.user_service_shift_log,interaction.user_session_log,interaction.user_session_logs,interaction.vcard,interaction.vcard_xupdate,interaction.vcard_search"
+    "table.exclude.list": "ejabberd.archive_prefs,ejabberd.audit_log,ejabberd.bosh,ejabberd.call_queue,ejabberd.archive,ejabberd.call_recordings,ejabberd.caps_features,ejabberd.chat_access_tokens,ejabberd.chat_data_export,ejabberd.chat_logs,ejabberd.chat_media_files,ejabberd.chat_message_edit_history,ejabberd.chat_otp,ejabberd.chat_recent,ejabberd.chat_recent_topic,ejabberd.chat_servers,ejabberd.chat_settings,ejabberd.chat_users,ejabberd.chat_users_details,ejabberd.client_call_logs,ejabberd.deleted_accounts,ejabberd.group_update,ejabberd.ejabberd_log,ejabberd.irc_custom,ejabberd.last,ejabberd.license_lookup,ejabberd.mail_templates,ejabberd.masdr_services,ejabberd.media_call_logs,ejabberd.media_logs,ejabberd.media_pod_logs,ejabberd.message_favourite,ejabberd.message_status,ejabberd.migration_file_details,ejabberd.mix_channel,ejabberd.mix_pam,ejabberd.mix_participant,ejabberd.mix_subscription,ejabberd.motd,ejabberd.mqtt_pub,ejabberd.muc_online_room,ejabberd.muc_online_users,ejabberd.muc_registered,ejabberd.muc_room,ejabberd.muc_room_subscribers,ejabberd.oauth_client,ejabberd.oauth_token,ejabberd.privacy_default_list,ejabberd.privacy_list,ejabberd.privacy_list_data,ejabberd.private_storage,ejabberd.proxy65,ejabberd.pubsub_node,ejabberd.pubsub_item,ejabberd.pubsub_node_option,ejabberd.pubsub_node_owner,ejabberd.pubsub_state,ejabberd.pubsub_subscription_opt,ejabberd.push_session,ejabberd.reports,ejabberd.rostergroups,ejabberd.rosterusers,ejabberd.roster_version,ejabberd.route,ejabberd.sites,ejabberd.sm,ejabberd.spool,ejabberd.sr_group,ejabberd.sr_user,ejabberd.topic_data,ejabberd.topic_data_old,ejabberd.users_contacts,ejabberd.user_service_shift_log,ejabberd.user_session_log,ejabberd.user_session_logs,ejabberd.vcard,ejabberd.vcard_xupdate,ejabberd.vcard_search"
   }
 }
