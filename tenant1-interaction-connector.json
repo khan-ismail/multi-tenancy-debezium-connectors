@@ -27,8 +27,8 @@
     "snapshot.fetch.size": "1000",
     "max.batch.size": "500",
 
-    "database.history.kafka.bootstrap.servers": "kafka:9092",
-    "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
+    "database.history.kafka.bootstrap.servers": "kafka-clickhouse.masdrdev.svc.cluster.local:9092",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka-clickhouse.masdrdev.svc.cluster.local:9092",
     "schema.history.internal.kafka.topic": "schema-changes.interaction",
 
     "time.precision.mode": "connect",
